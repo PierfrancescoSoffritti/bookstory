@@ -44,6 +44,8 @@ addImageButton.onclick = () => {
       loadImage(url, () => { 
         stopLoading() 
         smartRender()
+        
+        inputField.focus()
       })
     }
   })
