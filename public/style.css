@@ -1,0 +1,302 @@
+html, body {
+  width: 100%;
+  
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.85);
+  touch-action: manipulation;
+}
+
+img {
+  width: 55px;
+  margin: 2px;
+}
+
+canvas {
+  width: 270px;
+  height: 480px;
+  outline: black 1px solid;
+}
+
+.tutorial {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.input-field,
+.input-field:active,
+.input-field:read-write{
+  height: 40px;
+  background-color: rgb(50, 50, 50);
+  border: none;
+
+  color: white;
+  padding-left: 8px;
+
+  border-radius: 4px;
+}
+
+button {
+  height: 40px;
+}
+
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: flex;
+  visibility: hidden;
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ui-container {
+  margin: 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#image-controls {
+  display: flex;
+}
+
+.image-control {
+  flex: 1;
+}
+
+#image-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#loading-root {
+  color: white;
+}
+
+.margin-bottom {
+  margin-top: 8px;
+}
+
+.margin-bottom {
+  margin-bottom: 8px;
+}
+
+.margin-right {
+  margin-right: 8px;
+}
+
+.export-controls {
+  width: 270px;
+}
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+}
+
+.icon-button:hover,
+.icon-button:focus {
+  background-color: gray;
+}
+
+.white-text {
+  color: white;
+}
+
+#snackbar {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  z-index: 3; /* Add a z-index if needed */
+  bottom: 30px; /* 30px from the bottom */
+
+  position: fixed; /* Sit on top of the screen */
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, 0%);
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+.pure-material-button-contained {
+  font-family: 'Arial', sans-serif;
+
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  min-width: 64px;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  background-color: rgb(50, 50, 50);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 36px;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.pure-material-button-contained::-moz-focus-inner {
+  border: none;
+}
+
+/* Overlay */
+.pure-material-button-contained::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Ripple */
+.pure-material-button-contained::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  padding: 50%;
+  width: 32px; /* Safari */
+  height: 32px; /* Safari */
+  background-color: rgb(255, 255, 255);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 1s, transform 0.5s;
+}
+
+/* Hover, Focus */
+.pure-material-button-contained:hover,
+.pure-material-button-contained:focus {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:hover::before {
+  opacity: 0.08;
+}
+
+.pure-material-button-contained:focus::before {
+  opacity: 0.24;
+}
+
+.pure-material-button-contained:hover:focus::before {
+  opacity: 0.3;
+}
+
+/* Active */
+.pure-material-button-contained:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:active::after {
+  opacity: 0.32;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0s;
+}
+
+/* Disabled */
+.pure-material-button-contained:disabled {
+  color: rgba(255, 255, 255, 0.38);
+  background-color: rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  cursor: initial;
+}
+
+.pure-material-button-contained:disabled::before {
+  opacity: 0;
+}
+
+.pure-material-button-contained:disabled::after {
+  opacity: 0;
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1200px) {
+  #ui-container {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1700px) {
+  #ui-container {
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+}
+
+@media only screen and (min-width: 1701px) {
+  #ui-container {
+    margin-left: 500px;
+    margin-right: 500px;
+  }
+
+  canvas {
+    width: 420px;
+    height: 700px;
+  }
+}
