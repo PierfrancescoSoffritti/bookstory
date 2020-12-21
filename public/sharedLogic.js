@@ -1,4 +1,8 @@
 function shareImage(canvas, shareNotSupported, error, name) {
+  gtag('event', 'share', {
+    'item_id': name
+  });
+
   canvas.toBlob(blob => {
     const file = new File([blob], `${name}.jpg`, {type: blob.type});
     if (navigator.canShare && navigator.canShare({ files: [ file ] })) {
