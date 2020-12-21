@@ -127,7 +127,7 @@ function render(context, image, title, author, text) {
 
   drawBackground(context)
   drawMainRectangle(context)
-  drawText(context, "YEAR IN BOOKS - TOP PICKS")
+  drawText(context, "TOP PICKS")
   drawGradientRectangle(context)
 
   renderImage(context, image)

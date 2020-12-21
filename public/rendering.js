@@ -10,12 +10,12 @@ const mainRectangleHeight = canvas.height - topBottomMargin*2
 const mainRectangleWidth = canvas.width - leftRightMargin*2
 
 function drawText(context, text) {
-  context.font = "800 40px 'Roboto', sans-serif"
+  context.font = "bold 40px 'Roboto', sans-serif"
   context.fillStyle = "#4100F5"
   context.textBaseline = 'middle'
   context.fillText(text, leftRightMargin + innerMargin, canvas.height - topBottomMargin - textStripHeight / 2)
 
-  const url = "BOOKSTORY.UK"
+  const url = "BOOKSTORY.ME"
   const urlWidth = context.measureText(url).width
   context.fillText(url, canvas.width - leftRightMargin - urlWidth - innerMargin, canvas.height - topBottomMargin - textStripHeight / 2)
 }
