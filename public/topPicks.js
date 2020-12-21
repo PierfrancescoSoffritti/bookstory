@@ -150,6 +150,18 @@ function render(context, image, title, author, text) {
   const titleRenderingData = getRenderingData(context, title, titleBlock, titleFontSize, titleLineHeight)
   renderText(context, titleRenderingData.lines, titleRenderingData.fontSize, titleRenderingData.lineHeight, titleBlock, "#FFFFFF")
 
+  if (titleRenderingData.lines.length > 1) {
+    textBlock.y += 20
+    textBlock.height += 30
+
+    ratingTitleBlock.y += 40
+    ratingTitleBlock.height -= 20
+    
+    ratingBodyBlock.y += 20
+    ratingBodyBlock.height -= 20
+  }
+  textBlock.height -= 20
+
   const textRenderingData = getRenderingData(context, text, textBlock, textFontSize, textLineHeight)
   renderText(context, textRenderingData.lines, textRenderingData.fontSize, textRenderingData.lineHeight, textBlock, "#CDF564")
 
@@ -226,8 +238,8 @@ function renderImage(context, image) {
   textBlock.y = titleBlock.y + titleBlock.height
   textBlock.height =  500
 
-  ratingTitleBlock.y = textBlock.y + textBlock.height
-  ratingTitleBlock.height = 100
+  ratingTitleBlock.y = textBlock.y + textBlock.height + 20
+  ratingTitleBlock.height = 90
 
   ratingBodyBlock.y = ratingTitleBlock.y + ratingTitleBlock.height
   ratingBodyBlock.height = canvas.height - topBottomMargin - textStripHeight - (ratingTitleBlock.y + ratingTitleBlock.height) - innerMargin
