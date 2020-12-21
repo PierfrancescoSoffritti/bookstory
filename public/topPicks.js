@@ -72,7 +72,7 @@ addBookButton.onclick = () => {
     const url = json.coverUrl
     if (url == "") {
       stopLoading()
-      showSnackbar("Book not found")
+      showSnackbar("Book not found - try to be more specific")
     } else {
       loadImage(url, img => {
         image = img
@@ -85,7 +85,7 @@ addBookButton.onclick = () => {
   })
   .catch(() => { 
     stopLoading() 
-    showSnackbar("Book not found")
+    showSnackbar("Book not found - try to be more specific")
   })
 }
 
