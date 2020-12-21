@@ -1,4 +1,3 @@
-
 function shareImage(canvas, shareNotSupported, error, name) {
   canvas.toBlob(blob => {
     const file = new File([blob], `${name}.jpg`, {type: blob.type});

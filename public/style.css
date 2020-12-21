@@ -10,15 +10,53 @@ body {
   touch-action: manipulation;
 }
 
-img {
-  width: 55px;
-  margin: 2px;
-}
-
 canvas {
   width: 270px;
   height: 480px;
   outline: black 1px solid;
+}
+
+.cards-container { 
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+
+  margin-top: 8px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.5);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 200px;
+  
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  margin-right: 8px;
+  margin-bottom: 8px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.card:hover {
+  background-color: rgba(168, 168, 168, 0.1);
+}
+
+.card-text {
+  margin-bottom: 8px;
 }
 
 .tutorial {
@@ -95,9 +133,6 @@ button {
 
 .margin-bottom {
   margin-top: 8px;
-}
-
-.margin-bottom {
   margin-bottom: 8px;
 }
 
@@ -275,17 +310,59 @@ button {
   opacity: 0;
 }
 
-@media only screen and (min-width: 721px) and (max-width: 1200px) {
+@media only screen and (min-width: 0px) and (max-width: 499px) {
+  .card {
+    width : 140px
+  }
+
+  img {
+    width: 140px;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 800px) {
   #ui-container {
     margin-left: 50px;
     margin-right: 50px;
   }
+
+  .card {
+    width: 130px;
+  }
+
+  img {
+    width: 130px;
+  }
 }
 
-@media only screen and (min-width: 1201px) and (max-width: 1700px) {
+@media only screen and (min-width: 801px) and (max-width: 1100px) {
+  #ui-container {
+    margin-left: 220px;
+    margin-right: 220px;
+  }
+
+  .card {
+    width: 130px;
+  }
+
+  img {
+    width: 130px;
+  }
+}
+
+@media only screen and (min-width: 1101px) and (max-width: 1700px) {
   #ui-container {
     margin-left: 300px;
     margin-right: 300px;
+  }
+
+  canvas {
+    width: 420px;
+    height: 700px;
+  }
+
+  .card {
+    margin-right: 16px;
   }
 }
 
@@ -298,5 +375,9 @@ button {
   canvas {
     width: 420px;
     height: 700px;
+  }
+
+  .card {
+    margin-right: 16px;
   }
 }

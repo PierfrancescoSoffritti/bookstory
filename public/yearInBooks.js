@@ -1,5 +1,3 @@
-console.log("hello world :o");
-
 const canvas = document.getElementById("canvas")
 canvas.width = canvasWidth
 canvas.height = canvasHeight
