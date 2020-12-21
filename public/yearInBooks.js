@@ -62,7 +62,9 @@ downloadButton.onclick = () => {
   downloadButton.href = downloadUrl
   
   gtag('event', 'download', {
-    'item_id': 'year-in-books'
+    'event_category': 'download',
+    'event_label': 'download',
+    'value': 'year-in-books'
   });
 }
 

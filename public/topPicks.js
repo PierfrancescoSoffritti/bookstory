@@ -113,7 +113,9 @@ downloadButton.onclick = () => {
   downloadButton.href = downloadUrl
   
   gtag('event', 'download', {
-    'item_id': 'top-picks'
+    'event_category': 'download',
+    'event_label': 'download',
+    'value': 'top-picks'
   });
 }
 
