@@ -111,6 +111,10 @@ quoteInput.oninput = () => {
 downloadButton.onclick = () => {
   const downloadUrl = canvas.toDataURL('image/jpeg', 1.0)
   downloadButton.href = downloadUrl
+  
+  gtag('event', 'download', {
+    'item_id': 'top-picks'
+  });
 }
 
 function loadImage(url, callback) {
