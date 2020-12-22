@@ -59,7 +59,7 @@ app.get("/logs", (request, response) => {
         }
 
         // author
-        const authorTagMatch = str.match(/(<a class="authorName".*<span itemprop="name">.*<\/span>)/g);
+        const authorTagMatch = str.match(/(<a class="authorName".*><span itemprop="name">.*<\/span><\/a>)/g);
         if (authorTagMatch == null) {
           console.error("author tag not found");
         } else {
