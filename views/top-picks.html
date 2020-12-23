@@ -1,0 +1,75 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <!-- analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJD3WFZKR3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JJD3WFZKR3');
+    </script>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="A cool thing made with Glitch" />
+    <meta name="theme-color" content="#111" />
+
+    <title>Top Picks</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://glitch.com/edit/favicon-app.ico"
+      type="image/x-icon"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/sharedLogic.js" defer></script>
+    <script src="/rendering.js" defer></script>
+    <script src="/topPicks.js" defer></script>
+  </head>
+  <body>
+    
+    <div id="ui-container">
+      <div class="tutorial margin-top">
+        <div class="margin-bottom">Share one of your favourite books.</div>
+        <div class="margin-bottom">Pick a book and write something about it. Then click SHARE or DOWNLOAD to share it on social media.</div>
+      </div>
+
+      <div id="canvas-root" class="canvas-container">
+        <div>
+          <canvas id="canvas"></canvas>
+          <div class="export-controls">
+            <button id="share-button" class="pure-material-button-contained">SHARE</button>
+            <a id="download-button" download="book-highlight.jpg"><button class="pure-material-button-contained">DOWNLOAD</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div id="image-controls" class="margin-bottom">
+        <input type="text" id="book-input-field" class="input-field image-control margin-right" placeholder="Search book - for example &quot;1984 Orwell&quot; or search by ISBN">
+        <button id="add-image" class="image-control pure-material-button-contained">set book</button>
+      </div>
+      <input type="text" id="quote-input-field" class="input-field margin-bottom" placeholder="Write a quote or something about this book">
+    </div>
+    
+    <div id="loading-root" class="overlay">
+      <span>Searching for book...</span>
+    </div>
+    <div id="snackbar">snack</div>
+  </body>
+</html>
